@@ -15,9 +15,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+        
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="adminLogin.jsp">AdminLogin</a>
         <li class="nav-item">
           <a class="nav-link" href="login.jsp">Login</a>
         </li>

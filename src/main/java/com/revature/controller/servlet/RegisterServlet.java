@@ -29,26 +29,15 @@ public class RegisterServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String customername= request.getParameter("username");
-	      String password = request.getParameter("password");
-	      String phoneno   = request.getParameter("phonenumber");
-	    
-	     PrintWriter out = response.getWriter();
-	     System.out.println("username:"+ customername);
-	    System.out.println("password:" + password);
-	    System.out.println("phonenumber:" + phoneno);
-	     IUserDao user  = new UserDao();
-	     UserDetails ud= new UserDetails();
-	     ud.setCustomername(customername);
-	     ud.setPassword(password);
-	     ud.setPhoneno(Long.parseLong(phoneno));
-				try {
-					user.register(customername, password, Long.parseLong(phoneno));
-				
-				} catch (DBException e) {
-				
-					e.printStackTrace();
-				}
+		 String cus_name = request.getParameter("username");
+	        String password = request.getParameter("password");
+	        long phone_num = Long.parseLong(request.getParameter("phonenumber"));
+	        
+	        String json = LoginController.register(cus_name, password,phone_num);
+	        PrintWriter out = response.getWriter();
+	        out.write(json);        
+	        out.flush();
+	
 			
 			}
 		

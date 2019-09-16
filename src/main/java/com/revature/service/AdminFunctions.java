@@ -166,7 +166,12 @@ public static void UpdateRequest() throws SQLException
 	    admin.setAmountrequested(amt_requested);
 	    admin.setTargetamount(target_amt);
 	    IAdminDao dao= new AdminDao();
-	    dao.donationsUpdate(admin);
+	    try {
+			dao.donationsUpdate(admin);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    
 	   
 }

@@ -5,11 +5,12 @@ import java.util.List;
 
 import com.revature.exception.DBException;
 import com.revature.model.AdminAccess;
+import com.revature.model.AdminLogin;
 import com.revature.model.UserActivity;
 import com.revature.model.UserDetails;
 
 public interface IAdminDao {
-	boolean adminLogin(String name, String password2) throws SQLException;
+	AdminLogin adminLogin(String name, String password2) throws SQLException;
 
 	List<UserActivity> findAll() throws SQLException;
 

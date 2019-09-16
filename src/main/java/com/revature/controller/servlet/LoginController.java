@@ -14,6 +14,9 @@ public class LoginController {
 	         UserDetails ud= null;
 	        try {
 	            ud = user.login(cusname, password1);
+	            if (ud == null) {
+	            	throw new Exception("invalid");
+	            }
 	             
 	        } catch (Exception e) {
 	            //e.printStackTrace();
@@ -36,19 +39,75 @@ public class LoginController {
 	        return json;
 	         
 	    }
+	 public static String register( String cus_name, String password, long phone_num)  {
+         
+	        String errorMessage = null;
+	        String message = null;
+	         IUserDao user = new UserDao();
+	         UserDetails ud= null;
+	        try {
+	            ud=new UserDetails();
+	            ud.setCustomername(cus_name);
+	            ud.setPassword(password);
+	            ud.setPhoneno(phone_num);
+	            user.register(cus_name, password, phone_num);
+	            message = "success";
+	            }
+	        
+	             
+	        catch (Exception e) {
+	            //e.printStackTrace();
+	            errorMessage = e.getMessage();
+	        }       
+	         
+	        // Prepare JSON Object
+	      
+	 JsonObject obj = new JsonObject();
+     if (message != null) {
+         obj.addProperty("message", message);
+     } else if (errorMessage != null) {
+         obj.addProperty("errorMessage", errorMessage);
+     }
+     return obj.toString();
+	         
+	        
+	         
+	    }
 	     
+
 	    public static void main(String[] args) {
+	    	testLogin();
+	    	//testRegister();
+	    	
+	    }
+	    	
+	    
+	    	public static void testLogin() {
 	         
 	        System.out.println("Test Case 1: Valid User");
-	        String validUserJson = LoginController.login("kathy", "pass123");
+	        String validUserJson = LoginController.login("kathy", "123");
 	        System.out.println(validUserJson);
 	         
 	        System.out.println("Test Case 2: Invalid User");
 	        String invalidUserJson = LoginController.login("1123", "password");
 	        System.out.println(invalidUserJson);
+	    	}
+	        
+	        
+	        public static void testRegister() {
+		         
+		        System.out.println("Test Case 1: Valid User");
+		        String validUserJson = LoginController.register("priyanka", "234", 876543211l);
+		        System.out.println(validUserJson);
+		         
+		        System.out.println("Test Case 2: Invalid User");
+		        String invalidUserJson = LoginController.register("kathy", "123", 765432112l);
+		        System.out.println(invalidUserJson);
+	        
+	        
+	        
 	         
 	    }
 	}
 
 
-}

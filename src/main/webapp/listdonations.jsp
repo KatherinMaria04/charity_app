@@ -16,10 +16,11 @@ function listDonation(){
 var url="http://localhost:8080/Charity_app/ListRequest";
 $.getJSON(url,function(response){
     var list = response;
-    document.getElementById("tbody").innerHTML="";
-    var content=" ";
-   
 
+
+
+     document.getElementById("tbody").innerHTML="";
+    var content=" ";
 for(let ld of list){
     console.log(list);
     content += "<tr>";
@@ -43,7 +44,7 @@ document.getElementById("tbody").innerHTML =  content;
 <div class="container-fluid">
    <div class="row">
        <div class="col">
-           <h3>List Request</h3>
+           
            <table border="1" class="table table-condensed" id="tbl">
                <thead>
                    <tr>
@@ -62,6 +63,7 @@ document.getElementById("tbody").innerHTML =  content;
 listDonation();
 </script>
 
-<a href="index.jsp">Home</a>
-s</body>
+<a href="header.jsp">Home</a>
+<a href="addrequest.jsp">Add Donations</a>
+</body>
 </html>

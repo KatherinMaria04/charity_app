@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
 
 </head>
 <body>
@@ -24,7 +25,7 @@
 <button type="submit">Submit</button>
 <br/>
 Existing User ? <a href="login.jsp">Login</a> <br/>
-<a href="index.jsp">Home</a>
+<a href="header.jsp">Home</a>
 </form>
 <script>
 function register()
@@ -35,11 +36,19 @@ function register()
  var password=document.getElementById("password").value;
  var formData = "username=" + username + "&phonenumber="+ phonenumber +"&password="+password; 
  console.log(formData);
- var url="http://localhost:8080/Charity_app/RegisterServlet"+formData;
+ var url="http://localhost:8080/Charity_app/RegisterServlet?"+formData;
  console.log(url);
  var formData = {};
  $.get(url, function(response){
          console.log(response);
+         var msg = JSON.parse(response);
+         if (msg.errorMessage!=null) {
+             alert("Invalid Username/Password");
+         } else {
+             alert("valid Username/Password");
+             window.location.href = "login.jsp";
+         }
+         
  });
 }
 </script>

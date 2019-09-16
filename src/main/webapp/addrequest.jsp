@@ -15,23 +15,31 @@
 <script>
 function addRequest(){
     event.preventDefault();
-    var requesttype  = document.getElementById("requestType ").value;
-    var amountrequested  = document.getElementById("amountRequested ").value;
+    var requestType  = document.getElementById("requestType").value;
+    var amountrequested  = document.getElementById("amountRequested").value;
     var  targetamount = document.getElementById("targetAmount").value;
-    var formData = "requestType=" + requesttype + "&amountRequested=" + amountrequested + "&targetAmount="+ targetamount +;
+    var formData = "requestType=" + requestType + "&amountRequested=" + amountrequested + "&targetAmount="+ targetamount;
     console.log(formData);
-    var url="http://localhost:8080/Charity_app/AddDonationRequestController?requestType=B&amountRequested=1&targetAmount=10";
+    var url="http://localhost:8080/Charity_app/AddDonationRequestController?"+formData;
     	console.log(url);
     var formData = {};
     $.get(url, function(response){
             console.log(response);
+            var msg = JSON.parse(response);
+            if (msg.errorMessage!=null) {
+                alert("Invalid entry");
+            } else {
+                alert("valid entry");
+                window.location.href = "listdonations.jsp";
+            }
+            
     });
   }
     
 
 </script>
 <form onsubmit="addRequest()">
-<form action= listdonations.jsp>
+
 <label>RequestType:</label>
 <input type="text" name="requestType" id="requestType" placeholder="Enter requestType"  required autofocus />
 <br/>
@@ -46,7 +54,7 @@ function addRequest(){
 </form>
 </form>
 <br/>
-<a href="index.jsp">Home</a>
+<a href="header.jsp">Home</a>
 
 
 </body>

@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
-
 </head>
 <body>
-<h3> USER LOGIN</h3>
+<h3> ADMIN LOGIN</h3>
 <script>
 
 function login(){
@@ -21,7 +20,7 @@ function login(){
     
     var formData = "username=" + username + "&password=" + password ;
     console.log(formData);
-    var url="http://localhost:8080/Charity_app/LoginServlet?"+formData;
+    var url="http://localhost:8080/Charity_app/AdminLoginServlet?"+formData;
     console.log(url);
     var formData = {};
     $.get(url, function(response){
@@ -56,5 +55,8 @@ function login(){
 </form>
 <br/>
 <a href="header.jsp">Home</a>
+</body>
+</html>
+
 </body>
 </html>

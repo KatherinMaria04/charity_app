@@ -9,29 +9,35 @@ import java.util.List;
 
 import com.revature.util.ConnectionUtil;
 import com.revature.exception.DBException;
+import com.revature.exception.ValidatorException;
 import com.revature.model.AdminAccess;
+import com.revature.model.AdminLogin;
 import com.revature.model.UserActivity;
 import com.revature.model.UserDetails;
 
 public class AdminDao implements IAdminDao {
-public boolean adminLogin(String name,String password2) throws SQLException {
+public AdminLogin adminLogin(String name,String password2) throws SQLException {
+	AdminLogin al= null;
+       try {
+    	   Connection con = ConnectionUtil.getConnection();
+        String sql = "select name,password from adminlogin where name=?  and password=? ";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, name);
+		pst.setString(2, password2);
+		ResultSet rs = pst.executeQuery();
+		
+		  if (rs.next()) {
+                al = new AdminLogin();
+                al.setName(name);
+                al.setPassword(password2);
+                System.out.println("Login Success");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new SQLException("Unable to login",e);
+        } 
+        return al;
 
-        Connection con = ConnectionUtil.getConnection();
-        String sql = "select * from adminlogin where name=?  and password=? ";
-        PreparedStatement pst;
-		pst = con.prepareStatement(sql);
-		pst.setString(1, "admin");
-        pst.setString(2, "admin");
-        ResultSet rs = pst.executeQuery();
-       boolean isValid;
-           if(rs.next()){
-               isValid=true;
-           }
-           else
-           {
-               isValid = false;
-               }
-           return isValid;
 }
 public  List<UserActivity> findAll() throws SQLException {
     Connection con = ConnectionUtil.getConnection();

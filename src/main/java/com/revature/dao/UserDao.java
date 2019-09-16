@@ -27,16 +27,16 @@ public class UserDao implements IUserDao {
 			pst.executeUpdate();
 		} catch (Exception e) {
 
-	      throw new DBException("invalid username");
+	      throw new DBException("invalid username or user already exist",e);
 		}
 		
 	}
 	public UserDetails login(String cusname,String password1) throws ValidatorException {
-		UserDetails ud = new UserDetails();
+		UserDetails ud = null;
         
         try {
 			Connection con = ConnectionUtil.getConnection();
-			String sql = "select * from userlogin where cus_name=?  and password=? ";
+			String sql = "select cus_name, password from userlogin where cus_name=?  and password=? ";
 			PreparedStatement pst = con.prepareStatement(sql);
 			
 			pst.setString(1, cusname);
