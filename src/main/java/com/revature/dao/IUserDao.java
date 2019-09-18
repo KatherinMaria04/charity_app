@@ -18,7 +18,7 @@ public interface IUserDao {
 
 	void donarFund(UserActivity user) throws SQLException;
 
-	void updatedonation(UserActivity user ) throws SQLException;
+	void updatedonation(AdminAccess admin ) throws SQLException;
 
 
 

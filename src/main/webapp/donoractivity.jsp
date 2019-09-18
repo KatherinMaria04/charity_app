@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+<jsp:include page="header.jsp"></jsp:include>
 <script>
 
 function listDonation(){
@@ -38,6 +39,9 @@ document.getElementById("tbody").innerHTML =  content;
 </script>
 </head>
 <body>
+<br>
+<br>
+<br>
 <h2>LIST DONOR ACTIVITY</h2>
 <form onsubmit = "listDonation()"> </form> 
 <div class="container-fluid">

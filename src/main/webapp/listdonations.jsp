@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
-
+<jsp:include page="header.jsp"></jsp:include>
 <script>
 
 function listDonation(){
@@ -39,34 +39,39 @@ document.getElementById("tbody").innerHTML =  content;
 </script>
 </head>
 <body>
-<h2>LIST DONATIONS</h2>
-<br>
-<a href="header.jsp">Home</a>
 <br>
 <br>
-<a href="donordonations.jsp">Donor Donations</a>
+<br>
+	<h2> DONATION LIST</h2>
+	<br>
+	<a href="header.jsp">Home</a>
+	<br>
+	<br>
 
-<form onsubmit = "listDonation()"> </form> 
-<br>
-<div class="container-fluid">
-   <div class="row">
-       <div class="col">
-          
-           <table border="1" class="table table-condensed" id="tbl">
-               <thead>
-                   <tr>
-                       <th>RequestType</th>
-                       <th>AmountRequested</th>
-                       <th>RequestAmount</th>
-                   </tr>
-               </thead>
-               <tbody id="tbody">
-               </tbody>
-           </table>
-       </div>
-   </div>
-</div>
-<script>
+	<a href="donordonations.jsp">Donor Donations</a>
+
+	<form onsubmit="listDonation()"></form>
+	<br>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+
+
+				<table border="1" class="table table-condensed" id="tbl">
+					<thead>
+						<tr>
+							<th>RequestType</th>
+							<th>AmountRequested</th>
+							<th>RequestAmount</th>
+						</tr>
+					</thead>
+					<tbody id="tbody">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script>
 listDonation();
 </script>
 

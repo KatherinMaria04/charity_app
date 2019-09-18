@@ -8,8 +8,10 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
-
+<jsp:include page="header.jsp"></jsp:include>
 </head>
+<br>
+<br>
 <br>
 <br>
 <h2> REGISTERATION</h2>
@@ -55,7 +57,7 @@ function register()
          if (msg.errorMessage!=null) {
              alert("Invalid Username/Password");
          } else {
-             alert("valid Username/Password");
+             alert("register successfully");
              window.location.href = "login.jsp";
          }
          

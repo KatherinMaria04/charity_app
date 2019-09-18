@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+<jsp:include page="header.jsp"></jsp:include>
 </head>
 <body style="text-align:center">
 <br>
@@ -17,19 +18,19 @@
 
 <script>
 function addRequest(){
-	alert('entering');
+	//alert('entering');
     event.preventDefault();
     var UserName  = document.getElementById("UserName").value;
     var RequestType  = document.getElementById("RequestType").value;
     var DonatingAmount = document.getElementById("DonatingAmount").value;
-    alert('hello');
+    //alert('hello');
   
     var formData = "UserName=" + UserName + "&RequestType=" + RequestType + "&DonatingAmount="+ DonatingAmount;
     console.log(formData);
-    alert(formData);
+    //alert(formData);
     var url="http://localhost:8080/Charity_app/DonarFund?"+formData;
 	console.log(url);
-	alert(url);
+	//alert(url);
     var formData = {};
     $.get(url, function(response){
             console.log(response);
@@ -38,7 +39,7 @@ function addRequest(){
                 alert("Invalid entry");
             } else {
                 alert("thank you for your donation");
-                window.location.href = "header.jsp";
+                //window.location.href = "header.jsp";
             }
             
     });
@@ -67,8 +68,8 @@ function addRequest(){
         </button>
         <br />
 </form>
-
-
+<br>
+<a href="css.jsp">logout</a>
 
 </body>
 </html>

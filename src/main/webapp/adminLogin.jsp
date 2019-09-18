@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+<jsp:include page="header.jsp"></jsp:include>
  
 </head>
 <body style="text-align:center">
@@ -58,7 +59,11 @@ function login(){
 <input type="password" name="password" id="password" placeholder="Enter Password"  required />
 <br/>
 <br>
-<button type="submit">Submit</button>
+<input type="submit"
+            value="Submit" class="btn btn-success">
+        <button type="reset" class="btn btn-danger" value="clear">clear
+        </button>
+        <br />
 </form>
 <br/>
 <a href="header.jsp">Home</a>

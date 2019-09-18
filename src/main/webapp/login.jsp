@@ -8,11 +8,14 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+<jsp:include page="header.jsp"></jsp:include>
 
 </head>
 
 <body style="text-align:center">
 <br>	`
+<br>
+<br>
 <br>
 <h2> USER LOGIN</h2>
 <br>
