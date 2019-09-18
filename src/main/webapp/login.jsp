@@ -10,8 +10,12 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 
 </head>
-<body>
-<h3> USER LOGIN</h3>
+
+<body style="text-align:center">
+<br>	`
+<br>
+<h2> USER LOGIN</h2>
+<br>
 <script>
 
 function login(){
@@ -33,7 +37,7 @@ function login(){
             if (msg.errorMessage!=null) {
                 alert("Invalid Username/Password");
             } else {
-                alert("valid Username/Password");
+                alert("logged in successfully");
                 window.location.href = "listdonations.jsp";
             }
             
@@ -48,11 +52,16 @@ function login(){
 <label>Username:</label>
 <input type="text" name="username" id="username" placeholder="Enter username"  required autofocus />
 <br/>
+<br>
 <label>Password:</label>
 <input type="password" name="password" id="password" placeholder="Enter Password"  required />
 <br/>
-
-<button type="submit">Submit</button>
+<br>
+<input type="submit"
+            value="Submit" class="btn btn-success">
+        <button type="reset" class="btn btn-danger" value="clear">clear
+        </button>
+        <br />
 </form>
 <br/>
 <a href="header.jsp">Home</a>

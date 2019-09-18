@@ -2,8 +2,11 @@ package com.revature.controller.servlet;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.revature.controller.AdminAccessController;
 import com.revature.dao.IUserDao;
 import com.revature.dao.UserDao;
+import com.revature.model.AdminAccess;
+import com.revature.model.UserActivity;
 import com.revature.model.UserDetails;
 
 public class LoginController {
@@ -73,11 +76,43 @@ public class LoginController {
 	        
 	         
 	    }
+	 public  String donarFund(String UserName, String RequestType , long DonatingAmount)
+		{
+			String json = null;
+			String errorMessage = null;
+			try {
+				IUserDao ud=new UserDao();
+				 UserActivity user = new UserActivity();
+				 
+				 user.setCustomername(UserName);;
+				 user.setRequesttype(RequestType);
+				 
+				 user.setDonatingamount(DonatingAmount);;
+				 
+				ud.donarFund(user);
+				//ud.updatedonation(user);
+			} catch (Exception e) {
+				errorMessage = e.getMessage();
+			}
+			
+			JsonObject obj = new JsonObject();
+			if (errorMessage != null) {
+				obj.addProperty("errorMessage", errorMessage);
+			}
+			else {
+				obj.addProperty("message", "Successfully Updated");
+			}
+			
+			json = obj.toString();
+			
+			return json;
+		}
 	     
 
 	    public static void main(String[] args) {
-	    	testLogin();
+	    	//testLogin();
 	    	//testRegister();
+	    	testDonarFund();
 	    	
 	    }
 	    	
@@ -103,9 +138,14 @@ public class LoginController {
 		        System.out.println("Test Case 2: Invalid User");
 		        String invalidUserJson = LoginController.register("kathy", "123", 765432112l);
 		        System.out.println(invalidUserJson);
+	        }
 	        
 	        
-	        
+		        public static void testDonarFund() {
+			         
+		        	LoginController controller = new LoginController();
+		    		String json = controller.donarFund("abc","medical",8000);
+		    		System.out.println(json);
 	         
 	    }
 	}

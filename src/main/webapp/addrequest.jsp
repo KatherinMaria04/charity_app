@@ -10,8 +10,11 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 
 </head>
-<body>
-<h3> Add Donations</h3>
+<body style="text-align:center">
+<br>
+<br>
+<h2> Add Donations</h2>
+<br>
 <script>
 function addRequest(){
     event.preventDefault();
@@ -29,7 +32,7 @@ function addRequest(){
             if (msg.errorMessage!=null) {
                 alert("Invalid entry");
             } else {
-                alert("valid entry");
+                alert("Request added successfully");
                 window.location.href = "listdonations.jsp";
             }
             
@@ -43,13 +46,15 @@ function addRequest(){
 <label>RequestType:</label>
 <input type="text" name="requestType" id="requestType" placeholder="Enter requestType"  required autofocus />
 <br/>
+<br>
 <label>AmountRequested:</label>
 <input type="text" name="amountRequested" id="amountRequested" placeholder="Enter amount"  required />
 <br/>
+<br>
 <label>TragetAmount:</label>
 <input type="text" name="targetAmount" id="targetAmount" placeholder="Enter amount"  required />
 <br/>
-
+<br>
 <button type="submit">Submit</button>
 </form>
 </form>

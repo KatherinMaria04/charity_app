@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
-
 <script>
 
 function listDonation(){
@@ -39,19 +38,24 @@ document.getElementById("tbody").innerHTML =  content;
 </script>
 </head>
 <body>
-<h2>LIST DONATIONS</h2>
-<br>
+<h3> DONATIONS LIST</h3>
 <a href="header.jsp">Home</a>
 <br>
 <br>
-<a href="donordonations.jsp">Donor Donations</a>
+<a href="addrequest.jsp">Add Request</a>
+<br>
+<br>
+<a href="donardetails.jsp">Donor Details</a>
+<br>
+<br>
+<a href="donoractivity.jsp">Donor Activity</a>
+
 
 <form onsubmit = "listDonation()"> </form> 
-<br>
 <div class="container-fluid">
    <div class="row">
        <div class="col">
-          
+           
            <table border="1" class="table table-condensed" id="tbl">
                <thead>
                    <tr>
@@ -70,7 +74,16 @@ document.getElementById("tbody").innerHTML =  content;
 listDonation();
 </script>
 
+<a href="header.jsp">Home</a>
+<br>
+<br>
+<a href="addrequest.jsp">Add Request</a>
+<br>
+<br>
+<a href="donardetails.jsp">Donor Details</a>
 
+
+<body>
 
 </body>
 </html>

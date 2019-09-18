@@ -8,9 +8,15 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+ 
 </head>
-<body>
+<body style="text-align:center">
+<br>
+<br>
+<br>
+<br>
 <h3> ADMIN LOGIN</h3>
+<br>
 <script>
 
 function login(){
@@ -32,8 +38,8 @@ function login(){
             if (msg.errorMessage!=null) {
                 alert("Invalid Username/Password");
             } else {
-                alert("valid Username/Password");
-                window.location.href = "listdonations.jsp";
+                alert("logged in successfully");
+                window.location.href = "adminviewlist.jsp";
             }
             
     });
@@ -47,10 +53,11 @@ function login(){
 <label>Username:</label>
 <input type="text" name="username" id="username" placeholder="Enter username"  required autofocus />
 <br/>
+<br>
 <label>Password:</label>
 <input type="password" name="password" id="password" placeholder="Enter Password"  required />
 <br/>
-
+<br>
 <button type="submit">Submit</button>
 </form>
 <br/>

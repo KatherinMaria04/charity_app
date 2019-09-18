@@ -10,19 +10,29 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 
 </head>
-<body>
+<br>
+<br>
+<h2> REGISTERATION</h2>
+<body style="text-align:center">
 <form onsubmit="register()" >
 <label>Username:</label>
 <input type="text" name="username" id="username" placeholder="Enter username" required autofocus />
 <br/>
+<br>
 <label>Phone Number</label>
 <input type="tel" name="phonenumber" id="phonenumber" placeholder="Enter phone number"required  />
 <br/>
-
+<br>
 <label>Password:</label>
 <input type="password" name="password" id="password" placeholder="Enter Password" required />
 <br/>
-<button type="submit">Submit</button>
+<br>
+<input type="submit"
+            value="Submit" class="btn btn-success">
+        <button type="reset" class="btn btn-danger" value="clear">clear
+        </button>
+        <br />
+
 <br/>
 Existing User ? <a href="login.jsp">Login</a> <br/>
 <a href="header.jsp">Home</a>

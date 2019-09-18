@@ -8,12 +8,11 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
-
 <script>
 
 function listDonation(){
     
-var url="http://localhost:8080/Charity_app/ListAdminDetails";
+var url="http://localhost:8080/Charity_app/DonorActivity";
 $.getJSON(url,function(response){
     var list = response;
 
@@ -24,9 +23,9 @@ $.getJSON(url,function(response){
 for(let ld of list){
     console.log(list);
     content += "<tr>";
+    content += "<td>" + ld.customername + "</td>";
     content += "<td>" + ld.requesttype + "</td>";
-    content += "<td>" + ld.amountrequested + "</td>";
-    content += "<td>" + ld.targetamount + "</td>";
+    content += "<td>" + ld.donatingamount+ "</td>";
     content += "</tr>";
 }
 console.log(content);
@@ -39,25 +38,18 @@ document.getElementById("tbody").innerHTML =  content;
 </script>
 </head>
 <body>
-<h2>LIST DONATIONS</h2>
-<br>
-<a href="header.jsp">Home</a>
-<br>
-<br>
-<a href="donordonations.jsp">Donor Donations</a>
-
+<h2>LIST DONOR ACTIVITY</h2>
 <form onsubmit = "listDonation()"> </form> 
-<br>
 <div class="container-fluid">
    <div class="row">
        <div class="col">
-          
+           
            <table border="1" class="table table-condensed" id="tbl">
                <thead>
                    <tr>
+                       <th>UserName</th>
                        <th>RequestType</th>
-                       <th>AmountRequested</th>
-                       <th>RequestAmount</th>
+                       <th>DonatingAmount</th>
                    </tr>
                </thead>
                <tbody id="tbody">
@@ -70,7 +62,10 @@ document.getElementById("tbody").innerHTML =  content;
 listDonation();
 </script>
 
+<a href="header.jsp">Home</a>
 
+</head>
+<body>
 
 </body>
 </html>
